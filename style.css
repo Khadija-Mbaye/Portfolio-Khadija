@@ -740,3 +740,21 @@ footer {
         min-height: 220px;
     }
 }
+
+/* WhatsApp : mêmes dimensions que les autres cartes */
+.icone-contact.icone-whatsapp {
+    background-color: #E7F8ED;
+    color: #128C47;
+}
+
+.lien-contact-whatsapp:focus-visible {
+    outline: 3px solid #128C47;
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .lien-contact small {
+        display: block;
+        overflow-wrap: anywhere;
+    }
+}
