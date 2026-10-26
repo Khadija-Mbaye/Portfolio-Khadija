@@ -1,4 +1,3 @@
-
 /* =========================
    STYLE GENERAL
 ========================= */
@@ -424,8 +423,9 @@ nav ul li a:hover {
 
 .liste-competences {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 25px;
+    align-items: stretch;
     max-width: 1000px;
     margin: auto;
 }
@@ -434,6 +434,7 @@ nav ul li a:hover {
 
 .categorie-competences {
     background-color: #FFFFFF;
+    min-width: 0;
     padding: 35px;
     border-radius: 15px;
     border: 1px solid #E2E8F0;
@@ -480,10 +481,9 @@ nav ul li a:hover {
     margin-right: 10px;
 }
 
-/* La troisième carte prend toute la largeur */
-
-.categorie-competences:last-child {
-    grid-column: 1 / -1;
+/* Chaque carte de compétences occupe une seule colonne. */
+.liste-competences > .categorie-competences {
+    grid-column: auto;
 }
 
 /* Adaptation mobile */
@@ -504,10 +504,6 @@ nav ul li a:hover {
 
     .categorie-competences {
         padding: 25px;
-    }
-
-    .categorie-competences:last-child {
-        grid-column: auto;
     }
 }
 
@@ -661,5 +657,86 @@ footer {
 
     .cv-telechargement {
         padding: 30px 20px;
+    }
+}
+
+
+
+/* ===================================
+   BOUTONS RECRUITPRO EN ATTENTE
+=================================== */
+
+.liens-projet {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.bouton-attente {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+    gap: 6px;
+
+    background-color: #e5e7eb;
+    color: #6b7280;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+
+    cursor: not-allowed;
+}
+
+.bouton-attente small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: #9ca3af;
+}
+
+
+/* Liens actifs vers les projets publiés */
+.lien-projet {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    background-color: #2563EB;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.lien-projet:hover,
+.lien-projet:focus-visible {
+    background-color: #1D4ED8;
+    transform: translateY(-2px);
+}
+
+/* Espace entre les cartes et dimensions stables des images */
+.carte-projet + .carte-projet {
+    margin-top: 35px;
+}
+
+.image-projet {
+    min-width: 0;
+    min-height: 350px;
+}
+
+@media (max-width: 768px) {
+    .image-projet {
+        min-height: 220px;
     }
 }
